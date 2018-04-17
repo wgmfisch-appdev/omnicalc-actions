@@ -1,0 +1,37 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">
+    New time between calculation
+  </div>
+
+  <div class="card-body">
+    <form action="/time-between/results.html">
+      <div class="form-group">
+        <label for="starting_time">
+          Starting Time
+        </label>
+        <div class="input-group date datetimepicker" data-target-input="nearest">
+            <input type="text" id="starting_time" name="starting_time" class="form-control datetimepicker-input" data-target="#starting_time" data-toggle="datetimepicker"/>
+            <div class="input-group-append" data-target="#starting_time" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="ending_time">
+          Ending Time
+        </label>
+        <div class="input-group date datetimepicker" data-target-input="nearest">
+          <input type="text" id="ending_time" name="ending_time" class="form-control datetimepicker-input" data-target="#ending_time" data-toggle="datetimepicker"/>
+          <div class="input-group-append" data-target="#ending_time" data-toggle="datetimepicker">
+              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-outline-primary btn-block">
+        Calculate!
+      </button>
+    </form>
+  </div>  <!-- card-body -->
+</div>  <!-- card -->

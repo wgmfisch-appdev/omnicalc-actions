@@ -1,0 +1,33 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">
+    Time between results
+  </div>
+
+  <div class="card-body">
+    <dl>
+      <dt>Starting Time</dt>
+      <dd><%= @starting.strftime("%l:%M%P on %B %e, %Y") %></dd>
+
+      <dt>Ending Time</dt>
+      <dd><%= @ending.strftime("%l:%M%P on %B %e, %Y") %></dd>
+
+      <dt>Seconds</dt>
+      <dd><%= @seconds %></dd>
+
+      <dt>Minutes</dt>
+      <dd><%= @minutes %></dd>
+
+      <dt>Hours</dt>
+      <dd><%= @hours %></dd>
+
+      <dt>Days</dt>
+      <dd><%= @days %></dd>
+
+      <dt>Weeks</dt>
+      <dd><%= @weeks %></dd>
+
+      <dt>Years</dt>
+      <dd><%= @years %></dd>
+    </dl>
+  </div>  <!-- card-body -->
+</div>  <!-- card -->

@@ -1,0 +1,21 @@
+<div class="card border-warning mb-3">
+  <div class="card-header">
+    Image tagging results
+  </div>
+
+  <div class="card-body">
+    <dl>
+      <dt>Your original image</dt>
+      <dd><img src="<%= @original_image_url %>" width="400px"></dd>
+
+      <dt>Generated tags</dt>
+      <dd>
+        <ul>
+        <% @tag_hashes.each do |tag_hash| %>
+          <li><%= tag_hash.keys[0] %></li>
+        <% end  %>
+        </ul>
+      </dd>
+    </dl>
+  </div>  <!-- card-body -->
+</div>  <!-- card -->

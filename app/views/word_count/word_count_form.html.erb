@@ -1,0 +1,29 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">
+    New word count calculation
+  </div>
+
+  <div class="card-body">
+    <form action="/word-count/results.html">
+      <div class="form-group">
+        <label for="user_text">
+          Text
+        </label>
+
+        <textarea class="form-control" rows="3" name="user_text" placeholder="Enter your text" id="user_text"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="user_word">
+          Special Word (optional)
+        </label>
+
+        <input type="name" class="form-control" name="user_word" id="user_word" placeholder="Enter a word to count the occurrences of">
+      </div>
+
+      <button class="btn btn-outline-primary btn-block">
+        Calculate!
+      </button>
+    </form>
+  </div>  <!-- card-body -->
+</div>  <!-- card -->

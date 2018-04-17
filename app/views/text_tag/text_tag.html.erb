@@ -1,0 +1,21 @@
+<div class="card border-warning mb-3">
+  <div class="card-header">
+    Text tagging results
+  </div>
+
+  <div class="card-body">
+    <dl>
+      <dt>Your text</dt>
+      <dd><%= @text %></dd>
+
+      <dt>Generated tags</dt>
+      <dd>
+        <ul>
+        <% @tags.each do |tag| %>
+          <li><%= tag %></li>
+        <% end  %>
+        </ul>
+      </dd>
+    </dl>
+  </div>  <!-- card-body -->
+</div>  <!-- card -->

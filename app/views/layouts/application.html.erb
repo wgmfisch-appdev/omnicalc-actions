@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OmnicalcActions</title>
+    <%= csrf_meta_tags %>
+
+
+    <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
+    <meta charset="utf-8">
+
+    <!-- Connect Font Awesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.2/css/all.css">
+
+    <!-- Connect Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/lumen/bootstrap.min.css">
+
+    <!-- Connect Bootstrap JavaScript and its dependencies -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+
+    <!-- Make it responsive to small screens -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <i class="fas fa-fw fa-calculator"></i>
+          Omnicalc Actions
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto d-block d-lg-none">
+            <li class="nav-item">
+              <a href="/word-count/new.html" class="nav-link">
+                <i class="fas fa-fw fa-book"></i>
+                Word Count
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/loan-payment/new.html" class="nav-link">
+                <i class="far fa-fw fa-money-bill-alt"></i>
+                Loan Payment
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/time-between/new.html" class="nav-link">
+                <i class="far fa-fw fa-clock"></i>
+                Time Between
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/stats/new.html" class="nav-link">
+                <i class="far fa-fw fa-chart-bar"></i>
+                Descriptive Statistics
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/text-tag/new.html" class="nav-link">
+                <i class="fas fa-tag"></i>
+                Text Tagging
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/image-tag/new.html" class="nav-link">
+                <i class="fas fa-tag"></i>
+                Image Tagging
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/colorize/new.html" class="nav-link">
+                <i class="fas fa-paint-brush"></i>
+                Colorizing
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/street-to-coords/new.html" class="nav-link">
+                <i class="far fa-map"></i>
+                Street to Coordinates
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/street-to-coords/new.html" class="nav-link">
+                <i class="fas fa-map-marker-alt"></i>
+                Street to Coordinates
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/coords-to-weather/new.html" class="nav-link">
+                <i class="fas fa-sun"></i>
+                Coordinates to Weather
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/street-to-weather/new.html" class="nav-link">
+                <i class="fas fa-sun"></i>
+                Street to Weather
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 d-none d-lg-block">
+          <nav class="nav flex-column">
+            <a href="/word-count/new.html" class="nav-link btn btn-outline-primary mb-2">
+              <i class="fas fa-fw fa-book"></i>
+
+              Word Count
+            </a>
+
+            <a href="/loan-payment/new.html" class="nav-link btn btn-outline-primary mb-2">
+              <i class="far fa-fw fa-money-bill-alt"></i>
+
+              Loan Payment
+            </a>
+
+            <a href="/time-between/new.html" class="nav-link btn btn-outline-primary mb-2">
+              <i class="far fa-fw fa-clock"></i>
+
+              Time Between
+            </a>
+
+            <a href="/stats/new.html" class="nav-link btn btn-outline-primary mb-2">
+              <i class="far fa-fw fa-chart-bar"></i>
+
+              Descriptive Statistics
+            </a>
+
+            <a href="/text-tag/new.html" class="nav-link btn btn-outline-warning mb-2">
+              <i class="fas fa-tag"></i>
+
+              Text Tagging
+            </a>
+
+            <a href="/image-tag/new.html" class="nav-link btn btn-outline-warning mb-2">
+              <i class="fas fa-tag"></i>
+
+              Image Tagging
+            </a>
+
+            <a href="/colorize/new.html" class="nav-link btn btn-outline-warning mb-2">
+              <i class="fas fa-paint-brush"></i>
+
+              Colorizing
+            </a>
+
+            <a href="/street-to-coords/new.html" class="nav-link btn btn-outline-info mb-2">
+              <i class="fas fa-map-marker-alt"></i>
+
+              Street to Coordinates
+            </a>
+
+            <a href="/coords-to-weather/new.html" class="nav-link btn btn-outline-info mb-2">
+              <i class="fas fa-sun"></i>
+              Coordinates to Weather
+            </a>
+
+            <a href="/street-to-weather/new.html" class="nav-link btn btn-outline-info mb-2">
+              <i class="fas fa-sun"></i>
+              Street to Weather
+            </a>
+          </nav>
+        </div>  <!-- col-md-3 -->
+
+        <div class="col-lg-6">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

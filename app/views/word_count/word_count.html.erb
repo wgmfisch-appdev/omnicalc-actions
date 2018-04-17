@@ -1,0 +1,44 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">
+    Word count results
+  </div>
+
+  <div class="card-body">
+    <dl>
+      <dt>
+        Text
+      </dt>
+      <dd class="text">
+        <p><%= simple_format(@text) %></p>
+      </dd>
+
+      <dt>
+        Word Count
+      </dt>
+      <dd class="word_count">
+        <%= @word_count %>
+      </dd>
+
+      <dt>
+        Character Count (with spaces)
+      </dt>
+      <dd class="character_count_with_spaces">
+        <%= @character_count_with_spaces %>
+      </dd>
+
+      <dt>
+        Character Count (without spaces)
+      </dt>
+      <dd class="character_count_without_spaces">
+        <%= @character_count_without_spaces %>
+      </dd>
+
+      <dt>
+        Occurrences of <code><%= @special_word %></code>
+      </dt>
+      <dd class="occurrences">
+        <%= @occurrences %>
+      </dd>
+    </dl>
+  </div>  <!-- card-body -->
+</div>  <!-- card -->

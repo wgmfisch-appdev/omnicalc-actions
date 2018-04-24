@@ -23,6 +23,6 @@ class TimeBetweenController < ApplicationController
     # Your code goes above.
     # ================================================================================
 
-    render("time_between.html.erb")
+    render("time_between/time_between.html.erb")
   end
 end

@@ -21,6 +21,6 @@ class ForecastController < ApplicationController
 
     @summary_of_next_several_days = "Replace this string with your answer"
 
-    render("coords_to_weather.html.erb")
+    render("forecast/coords_to_weather.html.erb")
   end
 end

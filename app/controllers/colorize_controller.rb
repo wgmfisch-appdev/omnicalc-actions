@@ -15,6 +15,6 @@ class ColorizeController < ApplicationController
     # Your code goes above.
     # ================================================================================
 
-    render("colorize.html.erb")
+    render("colorize/colorize.html.erb")
   end
 end

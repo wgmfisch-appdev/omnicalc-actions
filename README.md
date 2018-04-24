@@ -21,7 +21,7 @@ It is a collection of calculators that do various things; count the number of wo
  1. Now paste the URL of your running application into a Chrome tab (or click the underlined URL that appears in the terminal when you run the project). If all went well, you should see the New Word Count form. **If not, let us know right away.**
  1. Type in some text and submit the form.
  1. On the results page, you will currently see just a bunch of placeholders. Your job will be to replace the placeholders with correctly computed values.
- 1. In Atom, find the `/app/controllers/word_count_controller.rb` file.
+ 1. In Cloud9, find the `/app/controllers/word_count_controller.rb` file.
  1. Locate the part of the file that looks like this:
 
         def word_count
@@ -59,9 +59,15 @@ It is a collection of calculators that do various things; count the number of wo
  1. When you're ready for some automated feedback, run `rspec` in a Terminal tab. There will be a bunch of output; don't be intimidated! Try to read through it and make sense of it; ask questions on Piazza, and we'll discuss in detail next week.
  1. Ask lots of questions!
 
+
 ## Part 2
 
-For this section, we're going to be extending your work with Omnicalc by exploring a machine learning API marketplace called [Algorithmia](https://algorithmia.com/). It's a fantastic resource that connects us to a large number of machine learning APIs, including many that do text and image analysis.
+ For instructions on Part 2, please see [this guide](https://guides.firstdraft.com/meteorologist-exercise-guide.html)
+
+
+## Part 3
+
+For this section, we're going to be extending your work with APIs by exploring a machine learning API marketplace called [Algorithmia](https://algorithmia.com/). It's a fantastic resource that connects us to a large number of machine learning APIs, including many that do text and image analysis.
 
 You'll get practice using forms to capture and process user input using some interesting applications including:
 - a service that auto-tags large blocks of text
@@ -74,23 +80,29 @@ First, visit [Algorithmia](https://algorithmia.com/) and sign up for an account.
 
 We'll also need to make sure your API key stays hidden, in case your project ever gets pushed to Github or another public repository. Unsavory types like to scrape Github for sensitive information like API keys and run up huge bills for compromised users. In this specific case, you didn't have to tie your API key to a credit card, but protecting your API keys is generally good practice.
 
-We've already got the infrastructure for this in place. Our class project apps come bundled with a gem called `dotenv` which lets us store sensitive information just in our local development environment and hide that info from Git so it doesn't get pushed anywhere with our code. The info is stored in a file called `.env` that exists in the root folder of your application. Create a new file at the root directory of your application and call it `.env`. In the file place, the following code:
+We can do this fairly easily in your workspace:
 
-```
-ALGORITHMIA_KEY="replace_me_with_your_key"
-```
+> If you realize you've made an error on any of the following steps, just type in `cd ~/workspace` and hit enter. That should get you back to the starting point.
 
-This is just a key-value pair that we can access anywhere in our Rails environment using the ENV hash. For example, to access this 'sensitive' info, we can open up Rails console and type in:
+1. Type in `cd ~` and hit enter. This command should take you to the home folder of your workspace
+1. Type in `touch .bash_profile` and hit enter. This command creates a hidden file called `.bash_profile`
+1. Type in `ls -a` and hit enter. You'll see a list of all the files in your current directory, including hidden files that start with a `.`
+1. Mouse over the file called `.bash_profile` and click it. The file should open up in your GeocodingController
+1. Paste in the following code into the file but make sure to use your own Algorithmia key on the right side of the `=` sign
 
-```
-ENV['ALGORITHMIA_KEY']
-```
 
-and we should see output of
+        ALGORITHMIA_KEY="replace_me_with_your_key"
 
-```
-"replace_me_with_your_key"
-```
+1. In terminal type in `cd ~/workspace` to go back to your initial workspace.
+      > If you ever need to reopen your bash profile, type `cd ~`, hit enter, then type `ls -a`, hit enter and click on the file to open it.
+
+1. The code we put into the `.bash_profile` is just a key-value pair that we can access anywhere in our Rails environment using the ENV hash. For example, to access this 'sensitive' info, we can open up Rails console and type in:
+
+        ENV['ALGORITHMIA_KEY']
+
+    and we should see output of
+
+        "replace_me_with_your_key"
 
 You can use this pattern throughout your Rails app to pull up any sensitive info. Practice by using the `.env` file to store your actual Algorithmia API key.
 
@@ -147,8 +159,50 @@ input = {
 }
 client = Algorithmia.client('simY67zXT/iPapXphMKEGTFDgSI1')
 algo = client.algo('deeplearning/ColorfulImageColorization/1.1.13')
-reslult = algo.pipe(input).result
+result = algo.pipe(input).result
 ```
+
+Expect to do a little extra work to pull out the colorized image. The result you recieve from `algo.pipe(input).result` is actually a hash that looks like:
+
+```
+{
+  "output": "data://.algo/deeplearning/ColorfulImageColorization/temp/grantpark-1.0.png"
+}
+```
+
+But you can't use that hash directly inside an image tag. You'll need to extract the value of the ``"output"`` key. There's still one more step, though. If you paste this example value into a browser, you wont see an actual image. That's because the `data://` formate is internal to Algorithmia's system. You'll need to figure out how to transform the value into something that looks more like:
+
+```
+https://algorithmia.com/v1/data/.algo/deeplearning/ColorfulImageColorization/temp/grantpark-1.0.png
+```
+
+If you ever find that you want to delve a little deeper into the variables from your controller, you can print those values to the terminal using the `ap()` method. For example:
+
+```
+def colorize
+  input = {
+    image: params[:image_url]
+  }
+
+  # ================================================================================
+  # Your code goes below.
+  # ================================================================================
+
+  some_intermediate_variable = "hello world"
+  ap(some_intermediate_variable)
+
+  @original_image_url = params[:image_url]
+  @colorized_image_url = "Replace this string with your answer"
+
+  # ================================================================================
+  # Your code goes above.
+  # ================================================================================
+
+  render("colorize/colorize.html.erb")
+end
+```
+
+Then, you should see "hello world" get printed to the terminal tab where you started your server. There's some noise to sift through, but you should still be able to see the output at the bottom of your server log.
 
 ### Problem 3 - Auto-tag Images
 
@@ -173,6 +227,4 @@ algo = client.algo('deeplearning/IllustrationTagger/0.4.0')
 result = algo.pipe(input).result
 ```
 
-## Part 3
-
-For instructions on Part 3, please see [this guide](https://guides.firstdraft.com/meteorologist-exercise-guide.html)
+Be careful with sending `result` down directly without any further processing. Is it actually an array of tag hashes? Use `ap()` or check the [Illustration Tagger page](https://algorithmia.com/algorithms/deeplearning/IllustrationTagger) to make sure the output is what you expect. If it's not, what processing can you do to get a list of tag hashes?

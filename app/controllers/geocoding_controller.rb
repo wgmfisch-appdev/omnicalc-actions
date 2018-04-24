@@ -16,6 +16,6 @@ class GeocodingController < ApplicationController
 
     @longitude = "Replace this string with your answer"
 
-    render("street_to_coords.html.erb")
+    render("geocoding/street_to_coords.html.erb")
   end
 end

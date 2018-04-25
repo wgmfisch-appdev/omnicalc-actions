@@ -130,14 +130,42 @@ people
 promise
 ```
 
-Visit the [AutoTag page](https://algorithmia.com/algorithms/nlp/AutoTag), and use the instructions at the bottom of the page as a starting point to integrate the API in your controller. ** You do not need to include the `require 'algorithmia'` statement from the instructions**
+Visit the [AutoTag page](https://algorithmia.com/algorithms/nlp/AutoTag), and use the instructions at the bottom of the page as a starting point to integrate the API in your controller. ** You do not need to include the `require 'algorithmia'` statement from the instructions**. We've copied over a version of the instructions for you in the code below. This is code that Algorithima provides us to get their services working. The variable and method names are new to us, but the structure of the code should be familiar by now. You'll still need to replace the hardcoded input with dynamic input coming in from user-submitted forms.
 
 ```
 input = "A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending. We propose a solution to the double-spending problem using a peer-to-peer..."
-client = Algorithmia.client('simY67zXT/iPapXphMKEGTFDgSI1')
+client = Algorithmia.client('your_api_key')
 algo = client.algo('nlp/AutoTag/1.0.1')
 result = algo.pipe(input).result
 ```
+
+If you ever find that you want to delve a little deeper into the variables from your controller, you can print those values to the terminal using the `ap()` method. For example:
+
+```
+class TextTagController < ApplicationController
+  def text_tag
+    @text = params[:text]
+
+    # ================================================================================
+    # Your code goes below.
+    # ================================================================================
+
+    some_intermediate_variabe = "hello world"
+    ap(some_intermediate_variabe)
+
+    @tags = "Replace this string with your answer"
+
+    # ================================================================================
+    # Your code goes above.
+    # ================================================================================
+
+    render("text_tag/text_tag.html.erb")
+  end
+end
+
+```
+
+Then, you should see "hello world" get printed to the terminal tab where you started your server. There's some noise to sift through, but you should still be able to see the output at the bottom of your server log.
 
 ### Problem 2 - Colorize Images
 
@@ -153,11 +181,13 @@ The API needs a bit of time to do it's work, so expect it to take about 30 secon
 
 Visit the [Image Colorization page](https://algorithmia.com/algorithms/deeplearning/ColorfulImageColorization), and use the instructions at the bottom of the page as a starting point to integrate the API in your controller.
 
+We've copied over a version of the instructions for you in the code below. You'll still need to replace the hardcoded input with dynamic input coming in from user-submitted forms.
+
 ```
 input = {
   image: "data://deeplearning/example_data/lincoln.jpg"
 }
-client = Algorithmia.client('simY67zXT/iPapXphMKEGTFDgSI1')
+client = Algorithmia.client('your_api_key')
 algo = client.algo('deeplearning/ColorfulImageColorization/1.1.13')
 result = algo.pipe(input).result
 ```
@@ -176,34 +206,6 @@ But you can't use that hash directly inside an image tag. You'll need to extract
 https://algorithmia.com/v1/data/.algo/deeplearning/ColorfulImageColorization/temp/grantpark-1.0.png
 ```
 
-If you ever find that you want to delve a little deeper into the variables from your controller, you can print those values to the terminal using the `ap()` method. For example:
-
-```
-def colorize
-  input = {
-    image: params[:image_url]
-  }
-
-  # ================================================================================
-  # Your code goes below.
-  # ================================================================================
-
-  some_intermediate_variable = "hello world"
-  ap(some_intermediate_variable)
-
-  @original_image_url = params[:image_url]
-  @colorized_image_url = "Replace this string with your answer"
-
-  # ================================================================================
-  # Your code goes above.
-  # ================================================================================
-
-  render("colorize/colorize.html.erb")
-end
-```
-
-Then, you should see "hello world" get printed to the terminal tab where you started your server. There's some noise to sift through, but you should still be able to see the output at the bottom of your server log.
-
 ### Problem 3 - Auto-tag Images
 
 The next service we'll use tags images.
@@ -218,11 +220,13 @@ The API needs a bit of time to do it's work, so expect it to take about 30 secon
 
 Visit the [Illustration Tagger page](https://algorithmia.com/algorithms/deeplearning/IllustrationTagger), and use the instructions at the bottom of the page as a starting point to integrate the API in your controller.
 
+We've copied over a version of the instructions for you in the code below. You'll still need to replace the hardcoded input with dynamic input coming in from user-submitted forms.
+
 ```
 input = {
   image: "data://deeplearning/example_data/trudeau.jpg"
 }
-client = Algorithmia.client('simY67zXT/iPapXphMKEGTFDgSI1')
+client = Algorithmia.client('your_api_key')
 algo = client.algo('deeplearning/IllustrationTagger/0.4.0')
 result = algo.pipe(input).result
 ```

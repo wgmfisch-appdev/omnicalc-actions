@@ -21,7 +21,9 @@ describe "/street-to-weather/new" do
     click_button "Tell me the weather!"
     expect(page).to have_content(/1600 Pennsylvania Ave NW/i)
   end
+end
 
+describe "/street-to-weather/new" do
   it "displays the current temperature", points: 1 do
     #====================  Begin setup  ===========================#
     # captures a URL pattern for the Google geocoding API call
@@ -43,7 +45,9 @@ describe "/street-to-weather/new" do
     temp = '46'
     expect(page).to have_content(temp)
   end
+end
 
+describe "/street-to-weather/new" do
   it "displays the current summary", points: 1 do
     #====================  Begin setup  ===========================#
     # captures a URL pattern for the Google geocoding API call
@@ -65,7 +69,9 @@ describe "/street-to-weather/new" do
     outlook = 'Partly Cloudy'
     expect(page).to have_content(/#{outlook}/i)
   end
+end
 
+describe "/street-to-weather/new" do
   it "displays the outlook for the next sixty minutes", points: 1 do
     #====================  Begin setup  ===========================#
     # captures a URL pattern for the Google geocoding API call
@@ -87,7 +93,9 @@ describe "/street-to-weather/new" do
     outlook = 'Partly cloudy for the hour'
     expect(page).to have_content(/#{outlook}/i)
   end
+end
 
+describe "/street-to-weather/new" do
   it "displays the outlook for the next several hours", points: 1 do
     #====================  Begin setup  ===========================#
     # captures a URL pattern for the Google geocoding API call
@@ -109,7 +117,9 @@ describe "/street-to-weather/new" do
     outlook = 'Mixed precipitation starting tomorrow morning, continuing until tomorrow afternoon'
     expect(page).to have_content(/#{outlook}/i)
   end
+end
 
+describe "/street-to-weather/new" do
   it "displays the outlook for the next several days", points: 1 do
     #====================  Begin setup  ===========================#
     # captures a URL pattern for the Google geocoding API call

@@ -19,7 +19,9 @@ describe "/coords-to-weather/new" do
     click_button "Lookup Weather!"
     expect(page).to have_content '38.8977332'
   end
+end
 
+describe "/coords-to-weather/new" do
   it "displays the longitude", points: 0 do
     #====================  Begin setup  ===========================#
     # captures two potential URL patterns from the controller forceast API calls
@@ -37,7 +39,9 @@ describe "/coords-to-weather/new" do
     click_button "Lookup Weather!"
     expect(page).to have_content '-77.0365305'
   end
+end
 
+describe "/coords-to-weather/new" do
   it "displays the current temperature", points: 1 do
     #====================  Begin setup  ===========================#
     # captures two potential URL patterns from the controller forceast API calls
@@ -56,7 +60,9 @@ describe "/coords-to-weather/new" do
     temp = '46'
     expect(page).to have_content(temp)
   end
+end
 
+describe "/coords-to-weather/new" do
   it "displays the current summary", points: 1 do
     #====================  Begin setup  ===========================#
     # captures two potential URL patterns from the controller forceast API calls
@@ -75,7 +81,9 @@ describe "/coords-to-weather/new" do
     outlook = 'Partly Cloudy'
     expect(page).to have_content(/#{outlook}/i)
   end
+end
 
+describe "/coords-to-weather/new" do
   it "displays the outlook for the next sixty minutes", points: 1 do
     #====================  Begin setup  ===========================#
     # captures two potential URL patterns from the controller forceast API calls
@@ -94,7 +102,9 @@ describe "/coords-to-weather/new" do
     outlook = 'Partly cloudy for the hour'
     expect(page).to have_content(/#{outlook}/i)
   end
+end
 
+describe "/coords-to-weather/new" do
   it "displays the outlook for the next several hours", points: 1 do
     #====================  Begin setup  ===========================#
     # captures two potential URL patterns from the controller forceast API calls
@@ -113,7 +123,9 @@ describe "/coords-to-weather/new" do
     outlook = 'Mixed precipitation starting tomorrow morning, continuing until tomorrow afternoon'
     expect(page).to have_content(/#{outlook}/i)
   end
+end
 
+describe "/coords-to-weather/new" do
   it "displays the outlook for the next several days", points: 1 do
     #====================  Begin setup  ===========================#
     # captures two potential URL patterns from the controller forceast API calls

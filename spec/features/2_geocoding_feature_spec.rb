@@ -16,7 +16,9 @@ describe "/street-to-coords/new" do
     click_button "Lookup Coordinates!"
     expect(page).to have_content(/1600 Pennsylvania Ave NW/i)
   end
+end
 
+describe "/street-to-coords/new" do
   it "displays the latitude", points: 1 do
     #====================  Begin setup  ===========================#
     # captures a URL pattern for the Google geocoding API call
@@ -32,7 +34,9 @@ describe "/street-to-coords/new" do
     click_button "Lookup Coordinates!"
     expect(page).to have_content '38.89'
   end
+end
 
+describe "/street-to-coords/new" do
   it "displays the longitude", points: 1 do
     #====================  Begin setup  ===========================#
     # captures a URL pattern for the Google geocoding API call

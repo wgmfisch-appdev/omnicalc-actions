@@ -59,6 +59,9 @@ It is a collection of calculators that do various things; count the number of wo
  1. When you're ready for some automated feedback, run `rspec` in a Terminal tab. There will be a bunch of output; don't be intimidated! Try to read through it and make sense of it; ask questions on Piazza, and we'll discuss in detail next week.
  1. Ask lots of questions!
 
+ > Make sure to use the following formula for your loan payment calculation:
+
+ ![Payment formula](payment_formula.gif?raw=true "Payment formula")
 
 ## Part 2
 

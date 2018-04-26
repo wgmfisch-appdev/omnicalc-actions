@@ -1,4 +1,4 @@
-require 'rails_helper'
+ require 'rails_helper'
 
 describe "/street-to-weather/new" do
   it "displays the street address", points: 0 do

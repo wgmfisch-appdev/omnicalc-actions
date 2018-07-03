@@ -109,6 +109,8 @@ We can do this fairly easily in your workspace:
 
 You can use this pattern throughout your Rails app to pull up any sensitive info. Practice by using the `.env` file to store your actual Algorithmia API key.
 
+> If you're having trouble getting the output to show up, that's ok. Don't spend too much time debugging this section. Just paste in your Algorithmia key directly in the examples below as opposed to using the environment variable technique of `ENV['ALGORITHMIA_KEY']`. Your code will be less secure, but you won't face any major problems since you're not using a paid account. 
+
 ### Problem 1 - Auto-tag Text
 
 The first service we'll use auto-tags blocks of text.
@@ -142,7 +144,18 @@ algo = client.algo('nlp/AutoTag/1.0.1')
 result = algo.pipe(input).result
 ```
 
-If you ever find that you want to delve a little deeper into the variables from your controller, you can print those values to the terminal using the `ap()` method. For example:
+Let's walk through Algorithmia's sample code:
+
+`input` holds the text to be tagged. 
+`client` holds the Algorithmia object that will process your data. This object needs to be initialized with your unique API key. 
+`algo` represents the specific Algorithmia algorithm to be run. In this case, it's using the 'nlp/AutoTag/1.0.1' algorithm. 
+`result` is the final output of the alorithm. There are multiple methods chained together here, but at a high level the output was calculated by sending the `input` to the `algo` variable to actually run the algorithm with your data. 
+
+We could have changed the variable names, but the method names were provided by Algorithmia so we need to use those as is. This is one of the potential drawbacks to using an API. We don't have control over naming conventions, so if something is confusing in the API code, we'll just need to deal with it and use the example code that's provided. 
+
+You'll need to make some adjustments to the sample code to get it working in your project. For example, you can assume that `@text` works like `input` and holds all the data to be tagged. This means you can skip the first line of `input = "A purely..."` and use the `@text` variabe in place of `input`. In addition, you need to send your results down to the view, so you'll need to replace `result` with `@tags`. These should be the only two changes for the first Algorithmia problem. You'll go through a similar pattern of changes in the other two problems. 
+
+If you ever find that you want to delve a little deeper into the variables from your controller, you can print those values to the terminal using the `console` method. For example:
 
 ```
 class TextTagController < ApplicationController
@@ -154,9 +167,10 @@ class TextTagController < ApplicationController
     # ================================================================================
 
     some_intermediate_variabe = "hello world"
-    ap(some_intermediate_variabe)
-
+    
     @tags = "Replace this string with your answer"
+    
+    console
 
     # ================================================================================
     # Your code goes above.
@@ -168,7 +182,8 @@ end
 
 ```
 
-Then, you should see "hello world" get printed to the terminal tab where you started your server. There's some noise to sift through, but you should still be able to see the output at the bottom of your server log.
+Then, you should see a web console that will give you access to all the variables in your current controller action, in this case `text_tag`. 
+
 
 ### Problem 2 - Colorize Images
 
@@ -203,7 +218,7 @@ Expect to do a little extra work to pull out the colorized image. The result you
 }
 ```
 
-But you can't use that hash directly inside an image tag. You'll need to extract the value of the ``"output"`` key. There's still one more step, though. If you paste this example value into a browser, you wont see an actual image. That's because the `data://` formate is internal to Algorithmia's system. You'll need to figure out how to transform the value into something that looks more like:
+But you can't use that hash directly inside an image tag. You'll need to extract the value of the ``"output"`` key. There's still one more step, though. If you paste this example value into a browser, you wont see an actual image. That's because the `data://` format is internal to Algorithmia's system. You'll need to figure out how to transform the value into something that looks more like:
 
 ```
 https://algorithmia.com/v1/data/.algo/deeplearning/ColorfulImageColorization/temp/grantpark-1.0.png
@@ -234,4 +249,4 @@ algo = client.algo('deeplearning/IllustrationTagger/0.4.0')
 result = algo.pipe(input).result
 ```
 
-Be careful with sending `result` down directly without any further processing. Is it actually an array of tag hashes? Use `ap()` or check the [Illustration Tagger page](https://algorithmia.com/algorithms/deeplearning/IllustrationTagger) to make sure the output is what you expect. If it's not, what processing can you do to get a list of tag hashes?
+Be careful sending the result down directly without any further processing. Is it actually an array of tag hashes? Use `console` or check the [Illustration Tagger page](https://algorithmia.com/algorithms/deeplearning/IllustrationTagger) to make sure the output is what you expect. If it's not, what processing can you do to get a list of tag hashes?

@@ -53,18 +53,18 @@ group :development, :test do
   gem "pry-rails"
   gem "web_git", github: "firstdraft/web_git"
   gem "awesome_print"
+  gem "console_ip_whitelist", github: "firstdraft/console_ip_whitelist"
+  gem "draft_log", github: "firstdraft/draft_log"
+  gem "better_errors"
 end
 
 group :development do
   gem "annotate"
-  gem "better_errors"
   gem "binding_of_caller"
   gem "dev_toolbar", github: "firstdraft/dev_toolbar"
   gem "draft_generators", github: "firstdraft/draft_generators"
   gem "letter_opener"
   gem "meta_request"
-  gem "console_ip_whitelist", github: "firstdraft/console_ip_whitelist"
-  gem "draft_log", github: "firstdraft/draft_log"
 end
 
 group :test do

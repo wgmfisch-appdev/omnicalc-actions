@@ -9,7 +9,7 @@ class ImageTagController < ApplicationController
     # ================================================================================
 
     @original_image_url = params[:image_url]
-    @tag_hashes = "Replace this string with your answer"
+    @tag_hashes = "Replace with the array containing the hashes representing tags"
 
     # ================================================================================
     # Your code goes above.

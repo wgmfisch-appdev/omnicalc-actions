@@ -1,7 +1,7 @@
 class WordCountController < ApplicationController
   def word_count
-    @text = params[:user_text]
-    @special_word = params[:user_word]
+    @text = params.fetch("user_text")
+    @special_word = params.fetch("user_word")
 
     # ================================================================================
     # Your code goes below.

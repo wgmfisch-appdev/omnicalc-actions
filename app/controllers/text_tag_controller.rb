@@ -1,6 +1,6 @@
 class TextTagController < ApplicationController
   def text_tag
-    @text = params[:text]
+    @text = params.fetch("text")
 
     # ================================================================================
     # Your code goes below.

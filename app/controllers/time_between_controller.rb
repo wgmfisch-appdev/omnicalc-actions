@@ -1,7 +1,7 @@
 class TimeBetweenController < ApplicationController
   def time_between
-    @starting = Chronic.parse(params[:starting_time])
-    @ending = Chronic.parse(params[:ending_time])
+    @starting = Chronic.parse(params.fetch("starting_time"))
+    @ending = Chronic.parse(params.fetch("ending_time"))
 
     # ================================================================================
     # Your code goes below.

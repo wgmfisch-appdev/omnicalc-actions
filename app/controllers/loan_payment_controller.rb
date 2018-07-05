@@ -1,8 +1,8 @@
 class LoanPaymentController < ApplicationController
   def loan_payment
-    @apr = params[:annual_percentage_rate].to_f
-    @years = params[:number_of_years].to_i
-    @principal = params[:principal_value].to_f
+    @apr = params.fetch("annual_percentage_rate").to_f
+    @years = params.fetch("number_of_years").to_i
+    @principal = params.fetch("principal_value").to_f
 
     # ================================================================================
     # Your code goes below.

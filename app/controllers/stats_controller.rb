@@ -1,6 +1,6 @@
 class StatsController < ApplicationController
   def stats
-    @numbers = params[:list_of_numbers].gsub(',', '').split.map(&:to_f)
+    @numbers = params.fetch("list_of_numbers").gsub(",", "").split.map(&:to_f)
 
     # ================================================================================
     # Your code goes below.

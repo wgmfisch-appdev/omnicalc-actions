@@ -2,7 +2,7 @@ require 'open-uri'
 
 class MeteorologistController < ApplicationController
   def street_to_weather
-    @street_address = params[:user_street_address]
+    @street_address = params.fetch("user_street_address")
     url_safe_street_address = URI.encode(@street_address)
 
     # ==========================================================================

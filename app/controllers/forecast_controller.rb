@@ -2,8 +2,8 @@ require 'open-uri'
 
 class ForecastController < ApplicationController
   def coords_to_weather
-    @lat = params[:user_latitude].strip
-    @lng = params[:user_longitude].strip
+    @lat = params.fetch("user_latitude").strip
+    @lng = params.fetch("user_longitude").strip
 
     # ==========================================================================
     # Your code goes below.

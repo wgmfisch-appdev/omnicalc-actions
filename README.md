@@ -155,7 +155,7 @@ Let's walk through Algorithmia's sample code:
 
 We could have changed the variable names, but the method names were provided by Algorithmia so we need to use those as is. This is one of the potential drawbacks to using an API. We don't have control over naming conventions, so if something is confusing in the API code, we'll just need to deal with it and use the example code that's provided.
 
-You'll need to make some adjustments to the sample code to get it working in your project. For example, you can assume that `@text` works like `input` and holds all the data to be tagged. This means you can skip the first line of `input = "A purely..."` and use the `@text` variabe in place of `input`. In addition, you need to send your results down to the view, so you'll need to replace `result` with `@tags`. These should be the only two changes for the first Algorithmia problem. You'll go through a similar pattern of changes in the other two problems.
+You'll need to make some adjustments to the sample code to get it working in your project. For example, you can assume that `@text` works like `input` and holds all the data to be tagged. This means you can skip the first line of `input = "A purely..."` and use the `@text` variable in place of `input`. In addition, you need to send your results down to the view, so you'll need to replace `result` with `@tags`. These should be the only two changes for the first Algorithmia problem. You'll go through a similar pattern of changes in the other two problems.
 
 If you ever find that you want to delve a little deeper into the variables from your controller, you can add the `console` method somewhere. For example:
 

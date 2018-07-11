@@ -84,13 +84,13 @@ We can do this fairly easily in your workspace:
 > If you realize you've made an error on any of the following steps, just type in `cd ~/workspace` and hit enter. That should get you back to the starting point.
 
 1. Type in `cd ~` and hit enter. This command should take you to the home folder of your workspace.
-1. Type in `touch .bash_profile` and hit enter. This command creates a hidden file called `.bash_profile`.
+1. Type in `touch .bash_profile` and hit enter. This command creates a hidden file called `.bash_profile` in your home folder.
 1. Type in `ls -a` and hit enter. You'll see a list of all the files in your current directory, including hidden files (the ones whose names start with a `.`).
 1. Mouse over the filename `.bash_profile` and click it. The file should open up in your editor.
 1. Paste in the following code into the file but make sure to use your own Algorithmia key on the right side of the `=` sign
 
     ```bash
-    export ALGORITHMIA_KEY="replace_me_with_your_key"
+    export ALGORITHMIA_KEY="replace_me_with_your_key" # note: no spaces around the =
     ```
 
 1. In terminal type in `cd ~/workspace` to go back to your main folder, or just close that tab.
@@ -98,10 +98,10 @@ We can do this fairly easily in your workspace:
     > If you ever need to reopen your bash profile, type `cd ~`, hit enter, then type `ls -a`, hit enter and click on the file to open it.
 
 1. If you have a Rails server running, stop it and re-start it.
-1. The code we put into the `.bash_profile` is just a key-value pair that we can access anywhere in our Rails environment using the ENV hash. For example, to access this 'sensitive' info, we can open a console and type in:
+1. The values that we `export` in the `.bash_profile` file become key-value pairs in a special Hash that we can access anywhere in our Rails environment called `ENV`. For example, to access this sensitive info, we can open a `rails console` and type in:
 
     ```ruby
-    ENV['ALGORITHMIA_KEY']
+    ENV.fetch("ALGORITHMIA_KEY")
     ```
 
     and we should see output of

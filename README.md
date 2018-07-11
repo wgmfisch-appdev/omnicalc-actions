@@ -90,8 +90,10 @@ We can do this fairly easily in your workspace:
 1. Paste in the following code into the file but make sure to use your own Algorithmia key on the right side of the `=` sign
 
     ```bash
-    export ALGORITHMIA_KEY="replace_me_with_your_key" # note: no spaces around the =
+    export ALGORITHMIA_KEY="replace_me_with_your_key"
     ```
+
+    Note: don't put spaces around the `=`.
 
 1. In terminal type in `cd ~/workspace` to go back to your main folder, or just close that tab.
 

@@ -90,7 +90,7 @@ We can do this fairly easily in your workspace:
 1. Paste in the following code into the file but make sure to use your own Algorithmia key on the right side of the `=` sign
 
     ```bash
-    ALGORITHMIA_KEY="replace_me_with_your_key"
+    export ALGORITHMIA_KEY="replace_me_with_your_key"
     ```
 
 1. In terminal type in `cd ~/workspace` to go back to your main folder, or just close that tab.

@@ -95,12 +95,12 @@ We can do this fairly easily in your workspace:
 
     Note: don't put spaces around the `=`.
 
-1. In terminal type in `cd ~/workspace` to go back to your main folder, or just close that tab.
+1. Back in Terminal, type in `cd ~/workspace` to go back to your main folder, or just close that tab.
 
     > If you ever need to reopen your bash profile, type `cd ~`, hit enter, then type `ls -a`, hit enter and click on the file to open it.
 
 1. If you have a Rails server running, stop it and re-start it.
-1. The values that we `export` in the `.bash_profile` file become key-value pairs in a special Hash that we can access anywhere in our Rails environment called `ENV`. For example, to access this sensitive info, we can open a `rails console` and type in:
+1. The values that we `export` in the `.bash_profile` file become key-value pairs in a special Hash that we can access anywhere in our Rails environment called `ENV`. For example, to access this sensitive info, **in a NEW Terminal tab** (it won't work in old tabs) we can open a `rails console` and type in:
 
     ```ruby
     ENV.fetch("ALGORITHMIA_KEY")

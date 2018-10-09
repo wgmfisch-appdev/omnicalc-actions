@@ -42,6 +42,6 @@ class StatsController < ApplicationController
     # Your code goes above.
     # ================================================================================
 
-    render("stats/stats.html.erb")
+    render("stats_templates/stats.html.erb")
   end
 end

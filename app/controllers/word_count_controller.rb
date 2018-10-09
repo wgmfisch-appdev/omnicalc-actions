@@ -21,6 +21,6 @@ class WordCountController < ApplicationController
     # Your code goes above.
     # ================================================================================
 
-    render("word_count/word_count.html.erb")
+    render("word_count_templates/word_count.html.erb")
   end
 end

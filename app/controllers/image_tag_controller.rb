@@ -15,6 +15,6 @@ class ImageTagController < ApplicationController
     # Your code goes above.
     # ================================================================================
 
-    render("image_tag/image_tag.html.erb")
+    render("image_tag_templates/image_tag.html.erb")
   end
 end

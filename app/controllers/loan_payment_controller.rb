@@ -17,6 +17,6 @@ class LoanPaymentController < ApplicationController
     # Your code goes above.
     # ================================================================================
 
-    render("loan_payment/loan_payment.html.erb")
+    render("loan_payment_templates/loan_payment.html.erb")
   end
 end

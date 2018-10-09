@@ -12,6 +12,6 @@ class TextTagController < ApplicationController
     # Your code goes above.
     # ================================================================================
 
-    render("text_tag/text_tag.html.erb")
+    render("text_tag_templates/text_tag.html.erb")
   end
 end

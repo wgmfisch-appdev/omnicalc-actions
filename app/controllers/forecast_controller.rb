@@ -23,4 +23,9 @@ class ForecastController < ApplicationController
 
     render("forecast_templates/coords_to_weather.html.erb")
   end
+
+  def coords_to_weather_form
+    render("forecast_templates/coords_to_weather_form.html.erb")
+  end
+  
 end

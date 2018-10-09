@@ -17,4 +17,8 @@ class ColorizeController < ApplicationController
 
     render("colorize_templates/colorize.html.erb")
   end
+
+  def colorize_form
+    render("colorize_templates/colorize_form.html.erb")
+  end
 end

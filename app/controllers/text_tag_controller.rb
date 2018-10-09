@@ -14,4 +14,8 @@ class TextTagController < ApplicationController
 
     render("text_tag_templates/text_tag.html.erb")
   end
+
+  def text_tag_form
+    render("text_tag_templates/text_tag_form.html.erb")
+  end
 end

@@ -18,4 +18,8 @@ class GeocodingController < ApplicationController
 
     render("geocoding_templates/street_to_coords.html.erb")
   end
+
+  def street_to_coords_form
+    render("geocoding_templates/street_to_coords_form.html.erb")
+  end
 end

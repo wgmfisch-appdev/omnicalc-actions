@@ -17,4 +17,8 @@ class ImageTagController < ApplicationController
 
     render("image_tag_templates/image_tag.html.erb")
   end
+
+  def image_tag_form
+    render("image_tag_templates/image_tag_form.html.erb")
+  end
 end

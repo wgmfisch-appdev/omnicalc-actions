@@ -19,4 +19,8 @@ class LoanPaymentController < ApplicationController
 
     render("loan_payment_templates/loan_payment.html.erb")
   end
+
+  def loan_payment_form
+    render("loan_payment_templates/loan_payment_form.html.erb")
+  end
 end

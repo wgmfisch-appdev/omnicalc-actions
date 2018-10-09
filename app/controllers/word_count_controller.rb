@@ -23,4 +23,8 @@ class WordCountController < ApplicationController
 
     render("word_count_templates/word_count.html.erb")
   end
+
+  def word_count_form
+    render("word_count_templates/word_count_form.html.erb")
+  end
 end

@@ -25,4 +25,8 @@ class TimeBetweenController < ApplicationController
 
     render("time_between_templates/time_between.html.erb")
   end
+
+  def time_between_form
+    render("time_between_templates/time_between_form.html.erb")
+  end
 end

@@ -24,4 +24,8 @@ class MeteorologistController < ApplicationController
 
     render("meteorologist_templates/street_to_weather.html.erb")
   end
+
+  def street_to_weather_form
+    render("meteorologist_templates/street_to_weather_form.html.erb")
+  end
 end

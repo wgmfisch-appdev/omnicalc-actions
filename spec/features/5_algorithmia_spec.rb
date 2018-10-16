@@ -26,7 +26,6 @@ end
 
 describe "/text-tag/new" do
   it "correctly generates tags", points: 5 do
-    Algorithmia = class_double("Algorithmia")
     text_tag_setup
 
     visit "/text-tag/new"
@@ -63,7 +62,6 @@ end
 
 describe "/colorize/new" do
   it "displays the colorized image", points: 5 do
-    Algorithmia = class_double("Algorithmia2")
     colorize_setup
 
     visit "/colorize/new"
@@ -99,7 +97,6 @@ end
 
 describe "/image-tag/new" do
   it "correctly generates tags", points: 5 do
-    Algorithmia = class_double("Algorithmia3")
     image_tag_setup
 
     visit "/image-tag/new"

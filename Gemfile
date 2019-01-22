@@ -11,8 +11,7 @@ gem "algorithmia"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 gem "rails", "~> 5.1.6"
-# Use sqlite3 as the database for Active Record
-gem "sqlite3"
+
 # Use Puma as the app server
 gem "puma", "~> 3.7"
 # Use SCSS for stylesheets
@@ -56,11 +55,12 @@ group :development, :test do
   gem "console_ip_whitelist", github: "firstdraft/console_ip_whitelist"
   gem "draft_log", github: "firstdraft/draft_log"
   gem "better_errors"
+  gem "binding_of_caller"
+  gem "sqlite3"
 end
 
 group :development do
   gem "annotate"
-  gem "binding_of_caller"
   gem "dev_toolbar", github: "firstdraft/dev_toolbar"
   gem "draft_generators", github: "firstdraft/draft_generators"
   gem "letter_opener"
@@ -73,6 +73,11 @@ group :test do
   gem "rspec-rails"
   gem "webmock"
   gem "rspec-html-matchers"
+end
+
+group :production do
+  gem "pg"
+  gem "rails_12factor"
 end
 
 gem "turbolinks"

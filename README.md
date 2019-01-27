@@ -230,7 +230,7 @@ We'll have to do a little extra work to pull out the colorized image, since we c
 We're still not done, though. If you paste the value into a browser, you wont see an actual image. That's because it starts with `data://`, not `https://` like a proper URL. You'll need to figure out how to transform the value into something that looks more like:
 
 ```
-https://algorithmia.com/v1/data/.algo/deeplearning/ColorfulImageColorization/temp/grantpark-1.0.png
+https://algorithmia.com/v1/data/.algo/deeplearning/ColorfulImageColorization/temp/lincoln.jpg
 ```
 
 Remember your [String methods from the Introduction to Ruby](https://guides.firstdraft.com/introduction-to-ruby/fundamental-classes#string)!

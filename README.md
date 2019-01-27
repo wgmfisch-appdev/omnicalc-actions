@@ -206,7 +206,7 @@ Here's how it should work:
 
 **Note:** Due to the 30 seconds or so it takes to colorize a photo, we've hardcoded the output in the target — it doesn't actually change based on the input URL. You'll have to make your own app work if you want to colorize your own image!
 
-As usual, we would get started by visiting the docs for the API and finding the Ruby section: [Image Colorization page](https://algorithmia.com/algorithms/deeplearning/ColorfulImageColorization). Here is the key bit:
+As usual, we would get started by visiting the docs for the API and finding the Ruby section: [Image Colorization](https://algorithmia.com/algorithms/deeplearning/ColorfulImageColorization). Here is the key bit:
 
 ```
 input = {

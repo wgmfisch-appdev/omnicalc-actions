@@ -217,7 +217,7 @@ algo = client.algo('deeplearning/ColorfulImageColorization/1.1.13')
 result = algo.pipe(input).result
 ```
 
-Now we have to figure out how to plug in our string instead. Expect to do a little extra work to pull out the colorized image. The result you recieve from `algo.pipe(input).result` is actually a hash that looks like:
+We would have to substitute our own URL, API key, etc. But then, `result` would then contain a hash that looks like:
 
 ```
 {
@@ -225,7 +225,7 @@ Now we have to figure out how to plug in our string instead. Expect to do a litt
 }
 ```
 
-But you can't use that hash directly as the `src` of an `<img>` element, of course. We need to pull out the value of the ``"output"`` key.
+We'll have to do a little extra work to pull out the colorized image, since we can't use that hash directly as the `src` of an `<img>` element, of course. We need to pull out the value of the ``"output"`` key.
 
 We're still not done, though. If you paste the value into a browser, you wont see an actual image. That's because it starts with `data://`, not `https://` like a proper URL. You'll need to figure out how to transform the value into something that looks more like:
 

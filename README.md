@@ -196,15 +196,17 @@ The next service we'll use colorizes black and white images.
 
 Here's how it should work:
 
-- If I visit `/colorize`, I should see a form that has a single input which lets me enter the URL of a black and white image. You can use [https://cdn.vox-cdn.com/uploads/chorus_asset/file/4863353/grantpark-1.0.jpg](https://cdn.vox-cdn.com/uploads/chorus_asset/file/4863353/grantpark-1.0.jpg) as an example. The smaller the image, the better. Try not to go beyond 800x800px.
+- If I visit `/colorize`, I should see a form that has a single input which lets me enter the URL of a black and white image.
+    - We aren't going to implement file uploads right now (that will come in Week 8), so the image should already be hosted somewhere on the internet.
+    - You can use [this URL](https://uc460917f867c9b2f59b57dcfbd4.dl.dropboxusercontent.com/cd/0/inline/AaPsNR45RldfeKp38IJWsUPyvT4RcOo1_-DUwSAYPHsbsCAyVWHESL2JdLS6CJUAmk0-o7G3EyuvNZ4f7mcHAnp7cFwKwa_XbGLNIXgZe6woUSIgI2xQCreQh8oGwo8AVac/file#) if you want to, or find a different one.
+    - If you want to use one of your own photos (a family photo, for example), you can [use Dropbox to get a URL for it[(https://cantonbecker.com/etcetera/2014/how-to-directly-link-or-embed-dropbox-images/)].
+    - Smaller images are better, at least while you are testing your code, because colorizing a black and white image is hard (almost magic)! It takes a long time. Once you get everything working, you can replace with a larger version.
 - The input should have a label of `Image URL` and the button you click to submit the form should be called `Colorize`.
-- When the form is submitted, I should see a colorized version of the original black and white picture
+- When the form is submitted, I should see a colorized version of the original black and white picture.
 
-The API needs a bit of time to do it's work, so expect it to take about 30 seconds or so for the request to complete.
+**Note:** Due to the 30 seconds or so it takes to colorize a photo, we've hardcoded the output in the target — it doesn't actually change based on the input URL. You'll have to make your own app work if you want to colorize your own image!
 
-Visit the [Image Colorization page](https://algorithmia.com/algorithms/deeplearning/ColorfulImageColorization), and use the instructions at the bottom of the page as a starting point to integrate the API in your controller.
-
-We've copied over a version of the instructions for you in the code below. You'll still need to replace the hardcoded input with dynamic input coming in from user-submitted forms.
+As usual, we would get started by visiting the docs for the API and finding the Ruby section: [Image Colorization page](https://algorithmia.com/algorithms/deeplearning/ColorfulImageColorization). Here is the key bit:
 
 ```
 input = {
@@ -215,19 +217,23 @@ algo = client.algo('deeplearning/ColorfulImageColorization/1.1.13')
 result = algo.pipe(input).result
 ```
 
-Expect to do a little extra work to pull out the colorized image. The result you recieve from `algo.pipe(input).result` is actually a hash that looks like:
+Now we have to figure out how to plug in our string instead. Expect to do a little extra work to pull out the colorized image. The result you recieve from `algo.pipe(input).result` is actually a hash that looks like:
 
 ```
 {
-  "output": "data://.algo/deeplearning/ColorfulImageColorization/temp/grantpark-1.0.png"
+  "output": "data://.algo/deeplearning/ColorfulImageColorization/temp/lincoln.jpg"
 }
 ```
 
-But you can't use that hash directly inside an image tag. You'll need to extract the value of the ``"output"`` key. There's still one more step, though. If you paste this example value into a browser, you wont see an actual image. That's because the `data://` format is internal to Algorithmia's system. You'll need to figure out how to transform the value into something that looks more like:
+But you can't use that hash directly as the `src` of an `<img>` element, of course. We need to pull out the value of the ``"output"`` key.
+
+We're still not done, though. If you paste the value into a browser, you wont see an actual image. That's because it starts with `data://`, not `https://` like a proper URL. You'll need to figure out how to transform the value into something that looks more like:
 
 ```
 https://algorithmia.com/v1/data/.algo/deeplearning/ColorfulImageColorization/temp/grantpark-1.0.png
 ```
+
+Remember your [String methods from the Introduction to Ruby](https://guides.firstdraft.com/introduction-to-ruby/fundamental-classes#string)!
 
 ### Problem 3 - Auto-tag Images
 

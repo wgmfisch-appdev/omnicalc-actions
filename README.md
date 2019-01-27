@@ -217,7 +217,7 @@ algo = client.algo('deeplearning/ColorfulImageColorization/1.1.13')
 result = algo.pipe(input).result
 ```
 
-We would have to substitute our own URL, API key, etc. But then, `result` would then contain a hash that looks like:
+We will have to substitute our own image's UR and API key. But then, the variable `result` would then contain a hash that looks like:
 
 ```
 {

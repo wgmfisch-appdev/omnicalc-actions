@@ -114,7 +114,7 @@ We can do this fairly easily in your workspace:
     => "replace_me_with_your_key"
     ```
 
-You can use this pattern throughout your Rails app to store and use sensitive info but prevent it from showing on GitHub when you push your code up.
+You can use this pattern throughout your Rails app to store and use sensitive info but prevent it from showing on GitHub when you push your code up, or from unauthorized visitors being able to see it in your public Cloud9 workspaces.
 
 ### Problem 1 - Auto-tag Text
 

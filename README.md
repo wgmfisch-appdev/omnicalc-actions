@@ -227,7 +227,7 @@ We will have to substitute our own image's URL and API key. But then, the variab
 
 We'll have to do a little extra work to pull out the colorized image, since we can't use that hash directly as the `src` of an `<img>` element, of course. We need to pull out the value of the ``"output"`` key.
 
-We're still not done, though. If you paste the value into a browser, you wont see an actual image. That's because it starts with `data://`, not `https://` like a proper URL. You'll need to figure out how to transform the value into something that looks more like:
+We're still not done, though. If you paste the value into a browser, you wont see an actual image. That's because it starts with `data://`, not `https://` like a proper URL. You'll need to figure out how to transform the value into something that looks  like:
 
 ```
 https://algorithmia.com/v1/data/.algo/deeplearning/ColorfulImageColorization/temp/lincoln.jpg

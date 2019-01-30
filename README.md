@@ -55,10 +55,10 @@ It is a collection of calculators that do various things; count the number of wo
  1. Keep working; your goal is to make your application behave exactly like the target. Next, work on the [Loan Payment calculator](http://localhost:3000/loan_payment/new). You'll again be working in the same file, `/app/controllers/calculations_controller.rb`. This time, scroll down to the method `def loan_payment` and write your code in there as indicated by the comments. You can find the formula at the end of the "Monthly payment formula" section of [this article](https://en.wikipedia.org/wiki/Mortgage_calculator#Monthly_payment_formula).
  1. As you work, remember to navigate to `/git` and **commit often as you work.**
  1. Make new branches freely to experiment! _Especially_ before starting on a new task.
- 1. Some tasks are easier, some are much harder. For example, in the Descriptive Statistics calculator, finding the mode (the number that occurs most frequently in a list of numbers) is surprisingly hard. Do your best, but don't get discouraged if you can't quite solve it without help.
+ 1. Some tasks are easier, some are much harder. For example, in the Descriptive Statistics calculator, finding the mode (the number that occurs most frequently in a list of numbers) is surprisingly hard. Do your best, but don't get discouraged if you can't quite solve it without asking questions.
  1. The [Introduction to Ruby](https://guides.firstdraft.com/introduction-to-ruby.html) contains enough tools to solve all of the Omnicalc challenges. (You can build up almost anything from scratch given conditionals, loops, and variables.) You should attempt to solve it using the tools you've already seen.
  1. For the mode calculation, just worry about the simplest case; when there's one number that occurs most frequently, that should be shown as the mode. I won't be testing the case that there's a tie.
- 1. When you're ready for some automated feedback, run `rspec` in a Terminal tab. There will be a bunch of output; don't be intimidated! Try to read through it and make sense of it; ask questions on Piazza, and we'll discuss in detail next week.
+ 1. When you're ready for some automated feedback, run `rails grade` in a Terminal tab. There will be a bunch of output; don't be intimidated! Try to read through it and make sense of it; ask questions on Piazza, and we'll discuss in detail next week.
  1. Ask lots of questions!
 
 ## Part 2

@@ -198,7 +198,7 @@ Here's how it should work:
 
 - If I visit `/colorize`, I should see a form that has a single input which lets me enter the URL of a black and white image.
     - We aren't going to implement file uploads right now (that will come in Week 8), so the image should already be hosted somewhere on the internet.
-    - You can use [this URL](https://uc460917f867c9b2f59b57dcfbd4.dl.dropboxusercontent.com/cd/0/inline/AaPsNR45RldfeKp38IJWsUPyvT4RcOo1_-DUwSAYPHsbsCAyVWHESL2JdLS6CJUAmk0-o7G3EyuvNZ4f7mcHAnp7cFwKwa_XbGLNIXgZe6woUSIgI2xQCreQh8oGwo8AVac/file#) if you want to, or find a different one.
+    - You can use [this URL](http://omnicalc-actions.herokuapp.com/migrant-mother-original.jpg) if you want to, or find a different one.
     - If you want to use one of your own photos (a family photo, for example), you can [use Dropbox to get a URL for it](https://cantonbecker.com/etcetera/2014/how-to-directly-link-or-embed-dropbox-images/).
     - Smaller images are better, at least while you are testing your code, because colorizing a black and white image is hard (almost magic)! It takes a long time. Once you get everything working, you can replace with a larger version.
 - The input should have a label of `Image URL` and the button you click to submit the form should be called `Colorize`.

@@ -295,7 +295,7 @@ As per the example in the docs, the result will be an object that looks somethin
 
 Your goal is to put the array of tags,
 
-```
+```ruby
 [
   { "1boy" => 0.9390615820884703 },
   { "solo" => 0.9158311486244202 },

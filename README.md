@@ -256,9 +256,7 @@ Here's how it should work:
 
 The API needs a bit of time to do it's work, so expect it to take about 30 seconds or so for the request to complete.
 
-Visit the [Illustration Tagger page](https://algorithmia.com/algorithms/deeplearning/IllustrationTagger), and use the instructions at the bottom of the page as a starting point to integrate the API in your controller.
-
-We've copied over a version of the instructions for you in the code below. You'll still need to replace the hardcoded input with dynamic input coming in from user-submitted forms.
+As usual, we would start by exploring the docs for [Illustration Tagger](https://algorithmia.com/algorithms/deeplearning/IllustrationTagger). We've copied over a version of the instructions for you below. You'll still need to replace the hardcoded input with dynamic input coming in from user-submitted forms.
 
 ```
 input = {
@@ -269,17 +267,43 @@ algo = client.algo('deeplearning/IllustrationTagger/0.4.0')
 result = algo.pipe(input).result
 ```
 
-Take a look at the [Illustration Tagger page](https://algorithmia.com/algorithms/deeplearning/IllustrationTagger) and look at the structure of the example output. Your goal is to put the array of tags,
+As per the example in the docs, the result will be an object that looks something like this:
+
+```ruby
+{
+  "character" => [],
+  "copyright" => [
+    { "real life" => 0.3819650411605835 },
+  ],
+  "general" =>
+  [
+    { "1boy" => 0.9390615820884703 },
+    { "solo" => 0.9158311486244202 },
+    { "male" => 0.6592671275138855 },
+    { "black hair" => 0.4281844198703766 },
+    { "necktie" => 0.2363460510969162 },
+    { "formal" => 0.2307535260915756 },
+  ],
+  "rating" =>
+  [
+    { "safe" => 0.9924461245536804 },
+    { "questionable" => 0.006749283988028765 },
+    { "explicit" => 0.0001874927111202851 },
+  ],
+}
+```
+
+Your goal is to put the array of tags,
 
 ```
 [
-    {
-      "1boy": 0.9390615820884703
-    },
-    {
-      "solo": 0.9158311486244202
-    },
-    ...
+  { "1boy" => 0.9390615820884703 },
+  { "solo" => 0.9158311486244202 },
+  { "male" => 0.6592671275138855 },
+  { "black hair" => 0.4281844198703766 },
+  { "necktie" => 0.2363460510969162 },
+  { "formal" => 0.2307535260915756 },
+]
 ```
 
 into the `@tag_hashes` variable.

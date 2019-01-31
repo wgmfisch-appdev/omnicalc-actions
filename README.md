@@ -158,10 +158,10 @@ result = algo.pipe(input).result
 
 Let's walk through Algorithmia's sample code:
 
-`input` holds the text to be tagged.
-`client` holds the Algorithmia object that will process your data. This object needs to be initialized with your unique API key.
-`algo` represents the specific Algorithmia algorithm to be run. In this case, it's using the 'nlp/AutoTag/1.0.1' algorithm.
-`result` is the final output of the alorithm. There are multiple methods chained together here, but at a high level the output was calculated by sending the `input` to the `algo` variable to actually run the algorithm with your data.
+ - `input` holds the text to be tagged.
+ - `client` holds the Algorithmia object that will process your data. This object needs to be initialized with your unique API key.
+ - `algo` represents the specific Algorithmia algorithm to be run. In this case, it's using the 'nlp/AutoTag/1.0.1' algorithm.
+ - `result` is the final output of the alorithm. There are multiple methods chained together here, but at a high level the output was calculated by sending the `input` to the `algo` variable to actually run the algorithm with your data. If it were me, I would have chosen a variable name that was different from the method name being used, but hey — the author of the example decided otherwise.
 
 We can change the _variable_ names given in the example if we want to, but the _method_ names are provided by the author of the `Algorithmia` class that we're borrowing, so we need to use those as is.
 

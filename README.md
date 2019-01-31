@@ -24,30 +24,34 @@ It is a collection of calculators that do various things; count the number of wo
  1. In Cloud9, find the `/app/controllers/word_count_controller.rb` file.
  1. Locate the part of the file that looks like this:
 
-        def word_count
-          @text = params[:user_text]
-          @special_word = params[:user_word]
+    ```ruby
+    def word_count
+      @text = params[:user_text]
+      @special_word = params[:user_word]
 
-          # ================================================================================
-          # Your code goes below.
-          # The text the user input is in the string @text.
-          # The special word the user input is in the string @special_word.
-          # ================================================================================
+      # ================================================================================
+      # Your code goes below.
+      # The text the user input is in the string @text.
+      # The special word the user input is in the string @special_word.
+      # ================================================================================
 
 
-          @character_count_with_spaces = "Replace this string with your answer."
+      @character_count_with_spaces = "Replace this string with your answer."
 
-          @character_count_without_spaces = "Replace this string with your answer."
+      @character_count_without_spaces = "Replace this string with your answer."
 
-          @word_count = "Replace this string with your answer."
+      @word_count = "Replace this string with your answer."
 
-          @occurrences = "Replace this string with your answer."
-        end
+      @occurrences = "Replace this string with your answer."
+    end
+    ```
 
  1. The code between the `def word_count` and `end` is the program that gets executed. I have already written some code that retrieves the inputs from the form and places them into variables for you to use, `@text` and `@special_word`.
  1. Your job is to write code below the comments and, ultimately, store the correct values in the variables I created at the bottom of the method. For example, to solve the first part, call `.length` on the user's input, `@text`, and assign the result to `@character_count_with_spaces`.
 
-        @character_count_with_spaces = @text.length
+    ```ruby
+    @character_count_with_spaces = @text.length
+    ```
 
  1. You have to figure out how to calculate the correct value for the rest: `@character_count_without_spaces`, `@word_count`, and `@occurrences`. Don't change the names of these variables; if you do, your results won't appear in the browser in the end.
  1. Refresh the results page in your browser to re-run your code and see new output.
@@ -71,9 +75,9 @@ For this section, we're going to be extending your work with APIs by exploring a
 
 You'll get practice using forms to capture and process user input using some interesting applications including:
 
- - a service that auto-tags large blocks of text
- - a service that colorizes black and white images
- - a service that auto-tags images with descriptive keywords
+ - a service that extracts keywords from large blocks of text
+ - a service that turns black and white images into color images!
+ - a service that tags images with descriptive keywords
 
 ### API Setup
 
@@ -118,12 +122,12 @@ You can use this pattern throughout your Rails app to store and use sensitive in
 
 ### Problem 1 - Auto-tag Text
 
-The first service we'll use extracts tags from blocks of text; for example, if you paste in the contents of a news article, it will try to extract keywords.
+The first service we'll use auto-tags blocks of text; for example, if you paste in the contents of a news article, it will try to extract keywords.
 
-Here's how it should work:
+Ultimately, here's how it should work:
 
-- If I visit `/text-tag`, I should see a form that has a single textarea element which lets me enter text for tagging. (For example, you can copy the text of [Paul Graham's essay, _How to Get Startup Ideas_](http://paulgraham.com/startupideas.html).)
-- The textarea should have a label of `Text` and the button you click to submit the form should be called `Generate Tags`.
+- If I visit `/text-tag`, I should see a form that has a single textarea element which lets me enter text for tagging. (For example, you can copy the text of [Paul Graham's essay, _How to Get Startup Ideas_](http://paulgraham.com/startupideas.html).) This part is already done.
+- The textarea should have a label of `Text` and the button you click to submit the form should be called `Generate Tags`. This part is already done.
 - When the form is submitted, I should see an unordered list of tags corresponding to the submitted text. If you used the example text, you should see the following tags:
 
     ```
@@ -137,7 +141,7 @@ Here's how it should work:
     users
     ```
 
-The ability to, given a blob of text, automatically extract keywords from it is pretty powerful! Using this technique you could, for example, automatically categorize blog posts.
+The ability to, given a blob of text, automatically extract keywords from it is pretty powerful! Using this technique you could, for example, automatically suggest hashtags for blog posts.
 
 Visit the [AutoTag page](https://algorithmia.com/algorithms/nlp/AutoTag), and near the bottom find the Ruby instructions and explore them a bit. We're going to use them as a guide to get the auto-tagging functionality working in our controller.
 
@@ -161,11 +165,13 @@ Let's walk through Algorithmia's sample code:
 
 We can change the _variable_ names given in the example if we want to, but the _method_ names are provided by the author of the `Algorithmia` class that we're borrowing, so we need to use those as is.
 
-You'll need to make some adjustments to the sample code to get it working in your project. For example, you can assume that `@text` works like `input` and holds all the data to be tagged. This means you can skip the first line of `input = "A purely..."` and use the `@text` variable in place of `input`. In addition, you need to send your results down to the view, so you'll need to replace `result` with `@tags`. These should be the only two changes for the first Algorithmia problem. You'll go through a similar pattern of changes in the other two problems.
+You'll need to make some adjustments to the sample code to get it working in your project. For example, you can assume that `@text` works like `input` and holds all the data to be tagged. This means you can skip the first line of `input = "A purely..."` and use the `@text` variable in place of `input`.
+
+Our goal is to ultimately assign an array of strings to `@tags`. Fortunately, that's exactly what the `.result` method returns for the AutoTag API. So we could just replace the variable name `result` with `@tags`, or do an additional assignment, and we're done with this one! You'll go through a similar pattern of changes in the other two problems.
 
 If you ever find that you want to delve a little deeper into the variables from your controller, here's a trick: force the error page to pop up, since the error page (after you run the `bin/whitelist` command the first time) has the very helpful rails console in the middle of the page where you can play around with your variables and see what's inside them. So, you could for example, just throw in an undefined variable:
 
-```
+```ruby
 class TextTagController < ApplicationController
   def text_tag
     @text = params[:text]
@@ -203,7 +209,7 @@ Here's how it should work:
     - You can use
 
         ```
-        http://omnicalc-actions.herokuapp.com/migrant-mother-original.jpg)
+        http://omnicalc-actions.herokuapp.com/migrant-mother-original.jpg
         ```
 
         if you want to, or find a different one. If you find a different one, make sure it's a real URL of an image, starting with `http` — confirm by pasting it into a new browser tab and you should see nothing but the image itself (no surrounding HTML). Google Images, in particular, recently made it harder to get the raw image's URL (probably due to copyright concerns).
@@ -217,7 +223,7 @@ Here's how it should work:
 
 As usual, we would get started by exploring the docs for [Image Colorization](https://algorithmia.com/algorithms/deeplearning/ColorfulImageColorization). Here is the key part of the Ruby section:
 
-```
+```ruby
 input = {
   :image => "data://deeplearning/example_data/lincoln.jpg"
 }
@@ -228,7 +234,7 @@ result = algo.pipe(input).result
 
 We will have to substitute our own image's URL and API key. But then, the variable `result` would then contain a hash that looks like:
 
-```
+```ruby
 {
   "output" => "data://.algo/deeplearning/ColorfulImageColorization/temp/lincoln.jpg"
 }
@@ -258,7 +264,7 @@ The API needs a bit of time to do it's work, so expect it to take about 30 secon
 
 As usual, we would start by exploring the docs for [Illustration Tagger](https://algorithmia.com/algorithms/deeplearning/IllustrationTagger). We've copied over a version of the instructions for you below. You'll still need to replace the hardcoded input with dynamic input coming in from user-submitted forms.
 
-```
+```ruby
 input = {
   :image => "data://deeplearning/example_data/trudeau.jpg"
 }

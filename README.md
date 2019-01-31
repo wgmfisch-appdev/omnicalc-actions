@@ -206,13 +206,9 @@ Here's how it should work:
 
 - If I visit `/colorize`, I should see a form that has a single input which lets me enter the URL of a black and white image.
     - We aren't going to implement file uploads right now (that will come in Week 8), so the image should already be hosted somewhere on the internet.
-    - You can use
+    - You can use [the URL of this black-and-white image of Abraham Lincoln](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Abraham_Lincoln_by_Byers%2C_1858_-_crop.jpg/182px-Abraham_Lincoln_by_Byers%2C_1858_-_crop.jpg), if you like; or find a different one.
 
-        ```
-        http://omnicalc-actions.herokuapp.com/migrant-mother-original.jpg
-        ```
-
-        if you want to, or find a different one. If you find a different one, make sure it's a real URL of an image, starting with `http` — confirm by pasting it into a new browser tab and you should see nothing but the image itself (no surrounding HTML). Google Images, in particular, recently made it harder to get the raw image's URL (probably due to copyright concerns).
+    If you find a different one, make sure it's a real URL of an image, starting with `http` — confirm by pasting it into a new browser tab and you should see nothing but the image itself (no surrounding HTML). Google Images, in particular, recently made it harder to get the raw image's URL (probably due to copyright concerns).
 
     - If you want to use one of your own photos (a family photo, for example), you can [use Dropbox to host and get a public URL for it](https://cantonbecker.com/etcetera/2014/how-to-directly-link-or-embed-dropbox-images/).
     - Smaller images are better, at least while you are testing your code, because colorizing a black and white image is hard (almost magic)! It takes a long time. Once you get everything working, you can replace with a larger version.

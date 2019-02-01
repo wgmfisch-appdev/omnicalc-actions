@@ -11,7 +11,12 @@ class LoanPaymentController < ApplicationController
     # The principal value the user input is in the decimal @principal.
     # ================================================================================
 
-    @monthly_payment = "Replace this string with your answer"
+      months_remaining = @years.to_f * 12
+      rate = @apr.to_f/12/100
+      pv = @principal.to_f
+      payment = (rate*pv)/(1-(1+rate)**(-1*months_remaining))
+      # ap("Monthly Payment: $" + payment.round(2).to_s)
+    @monthly_payment = payment.round(2).to_s
 
     # ================================================================================
     # Your code goes above.

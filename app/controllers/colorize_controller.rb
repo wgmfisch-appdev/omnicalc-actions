@@ -16,7 +16,7 @@ class ColorizeController < ApplicationController
     
     
     @original_image_url = params.fetch("image_url").strip
-    color_url = params.fetch(result.fetch("output")).strip.gsub("data://", "https://algorithmia.com/v1/data/")
+    color_url = result.fetch("output").strip.gsub("data://", "https://algorithmia.com/v1/data/")
     @colorized_image_url = color_url
 
     # ================================================================================

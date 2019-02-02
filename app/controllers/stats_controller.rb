@@ -7,36 +7,60 @@ class StatsController < ApplicationController
     # The numbers the user input are in the array @numbers.
     # ================================================================================
 
-    @sorted_numbers = "Replace this string with your answer"
+    @sorted_numbers = @numbers.sort
 
-    @count = "Replace this string with your answer"
+    @count = @numbers.count
 
-    @minimum = "Replace this string with your answer"
+    @minimum = @numbers.min
 
-    @maximum = "Replace this string with your answer"
+    @maximum = @numbers.max
 
-    @range = "Replace this string with your answer"
+    @range = @numbers.max - @numbers.min
 
     # Median
     # ======
+  sorted_numbers = @numbers.sort
+  median_array = []
+  if sorted_numbers.count.odd?
+    index = sorted_numbers.count/2
+    median = sorted_numbers.at(index.to_i)
+  else
+    index = sorted_numbers.count/2 + 0.5
+    median_array[0] = sorted_numbers.at(index.to_i)
+    median_array[1] = sorted_numbers.at(index.to_i-1)
+    median = median_array.sum / 2
+  end
+    @median = median
 
-    @median = "Replace this string with your answer"
-
-    @sum = "Replace this string with your answer"
-
-    @mean = "Replace this string with your answer"
+    @sum = @numbers.sum
+    
+    @mean = @numbers.sum.to_f / @numbers.count
 
     # Variance
     # ========
+    mean = @numbers.sum.to_f / @numbers.count
+    var = 0
+    @numbers.each do |num|
+      var = var + (num-mean)**2
+    end
+    @variance = var/@numbers.count
 
-    @variance = "Replace this string with your answer"
-
-    @standard_deviation = "Replace this string with your answer"
+    
+    @standard_deviation = (var/@numbers.count)**(0.5)
 
     # Mode
     # ====
-
-    @mode = "Replace this string with your answer"
+    count_array = Array.new(@numbers.count, 1)
+    mod = 0
+    @numbers.sort.each_with_index do |num, i|
+      if num == @numbers.sort.at(i + 1) #this only works if teh mode occurs only twice and none others do
+        count_array[i] = count_array[i] + 1
+      end
+      if count_array[i] == count_array.max
+        mod = num
+      end
+    end
+    @mode = mod
 
     # ================================================================================
     # Your code goes above.
